@@ -1,6 +1,6 @@
+import UserInfo from "@/components/UserInfo";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 
 const AdminPage = async () => {
   const session = await getServerSession(authOptions);
@@ -9,7 +9,11 @@ const AdminPage = async () => {
   }
   return (
     <div>
-      <p>{JSON.stringify(session.user)}</p>
+      <UserInfo
+        name={session.user?.name}
+        email={session.user?.email}
+        image={session.user?.image}
+      />
     </div>
   );
 };

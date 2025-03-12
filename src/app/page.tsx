@@ -1,3 +1,9 @@
+import HeroPage from "@/components/HeroPage";
+
 export default async function Home() {
-  return <div>sadff</div>;
+  return (
+    <div>
+      <HeroPage />
+    </div>
+  );
 }
