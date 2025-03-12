@@ -10,15 +10,17 @@ import {
   FormMessage,
 } from "../ui/form";
 import * as z from "zod";
-
+import { signIn } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import GoogleSignInButton from "../GoogleSignInButton";
 import { loginValidation } from "@/validations/auth";
+import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof loginValidation>>({
     resolver: zodResolver(loginValidation),
     defaultValues: {
@@ -27,8 +29,20 @@ const SignInForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof loginValidation>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof loginValidation>) => {
+    const res = await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+    console.log(res);
+
+    if (res?.error) {
+      console.log(res.error);
+    } else {
+      router.refresh();
+      router.push("/admin");
+    }
   };
 
   return (

@@ -9,7 +9,6 @@ export default async function Home() {
           <div key={e.id} className="">
             <h4>{e.email}</h4>
             <p>{e.username}</p>
-            <p>{e.password}</p>
           </div>
         ))}
     </div>
