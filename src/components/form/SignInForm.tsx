@@ -18,6 +18,7 @@ import Link from "next/link";
 import GoogleSignInButton from "../GoogleSignInButton";
 import { loginValidation } from "@/validations/auth";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -39,7 +40,9 @@ const SignInForm = () => {
 
     if (res?.error) {
       console.log(res.error);
+      toast.error("Oops! Something when wrong!");
     } else {
+      toast.success("Signin is Successfully");
       router.refresh();
       router.push("/admin");
     }
