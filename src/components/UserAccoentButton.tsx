@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
-const UserAccoentButton = ({ username }: { username: string }) => {
+const UserAccoentButton = ({ email }: { email: string }) => {
   return (
     <div className="flex gap-3 items-center justify-between">
       <Button
@@ -17,7 +17,7 @@ const UserAccoentButton = ({ username }: { username: string }) => {
       >
         sign out
       </Button>
-      <Link href="/admin">{username}</Link>
+      <Link href="/admin">{email}</Link>
     </div>
   );
 };

@@ -36,10 +36,7 @@ const SignInForm = () => {
       password: values.password,
       redirect: false,
     });
-    console.log(res);
-
     if (res?.error) {
-      console.log(res.error);
       toast.error("Oops! Something when wrong!");
     } else {
       toast.success("Signin is Successfully");

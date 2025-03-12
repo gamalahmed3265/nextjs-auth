@@ -16,7 +16,7 @@ const Navbar = async () => {
           <HandMetal />
         </Link>
         {session?.user ? (
-          <UserAccoentButton username={session.user.username} />
+          <UserAccoentButton email={session.user.email as string} />
         ) : (
           <Link className={buttonVariants()} href="/sign-in">
             Sign in

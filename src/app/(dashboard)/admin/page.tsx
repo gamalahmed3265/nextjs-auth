@@ -9,7 +9,7 @@ const AdminPage = async () => {
   }
   return (
     <div>
-      <p>{session?.user.username}</p>
+      <p>{JSON.stringify(session.user)}</p>
     </div>
   );
 };

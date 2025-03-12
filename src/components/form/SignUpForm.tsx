@@ -23,7 +23,7 @@ const SignUpForm = () => {
   const form = useForm<z.infer<typeof signupValidation>>({
     resolver: zodResolver(signupValidation),
     defaultValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -37,8 +37,8 @@ const SignUpForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: values.username,
         email: values.email,
+        name: values.name,
         password: values.password,
         confirmPassword: values.confirmPassword,
       }),
@@ -56,10 +56,10 @@ const SignUpForm = () => {
         <div className="space-y-2">
           <FormField
             control={form.control}
-            name="username"
+            name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>name</FormLabel>
                 <FormControl>
                   <Input placeholder="johndoe" {...field} />
                 </FormControl>

@@ -5,7 +5,7 @@ import { signupValidation } from "@/validations/auth";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, username, password } = signupValidation.parse(body);
+    const { email, name, password } = signupValidation.parse(body);
 
     // check for user is exists
     const existingUserByEmail = await db.user.findUnique({
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     const userNew = await db.user.create({
       data: {
         email: email,
-        username: username,
+        name: name,
         password: hashPawword,
       },
     });
