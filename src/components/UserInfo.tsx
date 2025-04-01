@@ -22,7 +22,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ name, email, image }) => {
             className="w-24 h-24 rounded-full object-cover border-2 border-gray-200"
           />
         ) : (
-          <div className="w-24 h-24 rounded-full object-cover border-2 border-gray-200">
+          <div className="w-24 flex flex-col justify-center items-center h-24 rounded-full object-cover border-2 border-gray-200">
             <ImageIcon />
           </div>
         )}

@@ -25,6 +25,7 @@ CREATE TABLE `Account` (
     `scope` VARCHAR(191) NULL,
     `id_token` TEXT NULL,
     `session_state` VARCHAR(191) NULL,
+    `ext_expires_in` INTEGER NULL,
 
     UNIQUE INDEX `Account_provider_providerAccountId_key`(`provider`, `providerAccountId`),
     PRIMARY KEY (`id`)

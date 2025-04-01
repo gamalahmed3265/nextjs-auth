@@ -19,6 +19,7 @@ import GoogleSignInButton from "../GoogleSignInButton";
 import { loginValidation } from "@/validations/auth";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import AzureSigninButton from "../AzureSigninButton";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -88,6 +89,8 @@ const SignInForm = () => {
         or
       </div>
       <GoogleSignInButton>Sign in with Google</GoogleSignInButton>
+      <AzureSigninButton>Sign up with Azure</AzureSigninButton>
+
       <p className="text-center text-sm text-gray-600 mt-2">
         If you don&apos;t have an account, please&nbsp;
         <Link className="text-blue-500 hover:underline" href="/sign-up">

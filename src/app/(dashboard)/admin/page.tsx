@@ -8,7 +8,7 @@ const AdminPage = async () => {
     return <p>not found</p>;
   }
   return (
-    <div>
+    <div className="h-screen flex flex-col justify-center items-center">
       <UserInfo
         name={session.user?.name}
         email={session.user?.email}
