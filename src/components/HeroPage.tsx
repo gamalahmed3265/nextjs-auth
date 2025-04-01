@@ -23,7 +23,7 @@ const HeroPage: NextPage = () => {
         {/* Icons Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Feature 1: Secure Login */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center rounded hover:shadow-lg transition-all duration-500 p-4">
             <LogIn className="h-12 w-12 mb-4" />
             <h3 className="text-xl font-semibold">Secure Login</h3>
             <p className="text-sm">
@@ -32,7 +32,7 @@ const HeroPage: NextPage = () => {
           </div>
 
           {/* Feature 2: User Management */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center rounded hover:shadow-lg transition-all duration-500 p-4">
             <UserIcon className="h-12 w-12 mb-4" />
             <h3 className="text-xl font-semibold">User Management</h3>
             <p className="text-sm">
@@ -41,7 +41,7 @@ const HeroPage: NextPage = () => {
           </div>
 
           {/* Feature 3: Trusted Security */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center rounded hover:shadow-lg transition-all duration-500 p-4">
             <CheckCheck className="h-12 w-12 mb-4" />
             <h3 className="text-xl font-semibold">Trusted Security</h3>
             <p className="text-sm">

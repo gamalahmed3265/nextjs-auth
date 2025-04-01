@@ -1,10 +1,10 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import AzureADProvider from "next-auth/providers/azure-ad";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "./prisma";
 import { compare } from "bcrypt";
-import { Client } from "openid-client"; // Import for type safety
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -31,6 +31,26 @@ export const authOptions: NextAuthOptions = {
       // Customize HTTP options
       httpOptions: {
         timeout: 10000, // Increase to 10 seconds
+      },
+    }),
+    AzureADProvider({
+      clientId: process.env.AZURE_AD_CLIENT_ID as string,
+      clientSecret: process.env.AZURE_AD_CLIENT_SECRET as string,
+      tenantId: process.env.AZURE_AD_TENANT_ID,
+      profile(profile) {
+        console.log("Azure AD Profile:  ---------------------", profile); // Add this line
+        console.log("--------------------------------------");
+
+        return {
+          id: profile.oid,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture || null,
+          emailVerified: profile.email_verified ? new Date() : null,
+        };
+      },
+      httpOptions: {
+        timeout: 10000,
       },
     }),
     CredentialsProvider({
